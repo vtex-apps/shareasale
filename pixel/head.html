@@ -1,0 +1,12 @@
+<script>
+  (function() {
+    var merchantId = "{{settings.merchantId}}";
+    var transtype = "{{settings.transtype}}"
+    if (!merchantId || !transtype) {
+      console.error('Warning: No Shareasale Merchant ID or Transaction Type is defined. Please configure it in the apps admin.');
+    } else {
+      window.__shareasale_merchant_id = merchantId;
+      window.__shareasale_transtype = transtype;
+    }
+  })()
+</script>
