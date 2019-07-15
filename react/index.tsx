@@ -1,15 +1,5 @@
 import { canUseDOM } from 'vtex.render-runtime'
-
-export interface Order {
-  visitorContactInfo: string[]
-  transactionId: string
-  transactionTotal: number,
-  transactionProducts: ProductOrder[]
-}
-
-interface ProductOrder {
-  sku: string,
-}
+import { Order, PixelMessage } from './typings/events'
 
 function addPixelImage(order: Order) {
   const merchantId = window.__shareasale_merchant_id
@@ -19,7 +9,7 @@ function addPixelImage(order: Order) {
     return
   }
 
-  const total = order.transactionTotal
+  const total = order.transactionSubtotal
   const orderId = order.transactionId
 
   const img = document.createElement('img')
@@ -32,10 +22,10 @@ function addPixelImage(order: Order) {
   document.body.appendChild(img)
 }
 
-function handleMessages(e: any) {
+function handleMessages(e: PixelMessage) {
   switch (e.data.eventName) {
     case 'vtex:orderPlaced': {
-      const order = e.data as Order
+      const order = e.data
       addPixelImage(order)
       break
     }
