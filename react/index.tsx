@@ -19,7 +19,7 @@ function addPixelImage(order: Order) {
     return
   }
 
-  const total = order.transactionTotal
+  const total = order.transactionProducts
   const orderId = order.transactionId
 
   const img = document.createElement('img')
