@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "shareasale",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "title": "Shareasale",
   "description": "Shareasale",
   "builders": {
